@@ -1,7 +1,11 @@
-// eslint-disable-next-line import/no-commonjs
-module.exports = {
-  plugins: {
-    tailwindcss: {},
-    autoprefixer: {},
-  },
+/* eslint-disable import/no-commonjs */
+/** @type {import('postcss-load-config').Config} */
+const config = {
+  plugins: [
+    require("tailwindcss"),
+    require("autoprefixer"),
+    require("postcss-pxtorem"),
+  ],
 };
+
+module.exports = config;

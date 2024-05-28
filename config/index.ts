@@ -9,57 +9,63 @@ const config = {
   },
   sourceRoot: "src",
   outputRoot: "dist",
-  plugins: [
-    "@taro-hooks/plugin-react"
-  ],
+  plugins: ["taro-plugin-react-svg", "@taro-hooks/plugin-react"],
   defineConstants: {},
   copy: {
     patterns: [],
     options: {},
   },
-  framework: 'react',
-  compiler: 'webpack5',
+  framework: "react",
+  compiler: "webpack5",
   cache: {
-    enable: false // Webpack 持久化缓存配置，建议开启。默认配置请参考：https://docs.taro.zone/docs/config-detail#cache
+    enable: false, // Webpack 持久化缓存配置，建议开启。默认配置请参考：https://docs.taro.zone/docs/config-detail#cache
   },
   mini: {
-  postcss: {
-    pxtransform: {
-      enable: true,
-        config: { },
-    },
-    url: {
-      enable: true,
+    postcss: {
+      pxtransform: {
+        enable: false,
         config: {
-        limit: 1024, // 设定转换尺寸上限
+          baseFontSize: 16,
         },
-    },
-    cssModules: {
-      enable: false, // 默认为 false，如需使用 css modules 功能，则设为 true
+      },
+      url: {
+        enable: true,
         config: {
-        namingPattern: "module", // 转换模式，取值为 global/module
+          limit: 1024, // 设定转换尺寸上限
+        },
+      },
+      cssModules: {
+        enable: false, // 默认为 false，如需使用 css modules 功能，则设为 true
+        config: {
+          namingPattern: "module", // 转换模式，取值为 global/module
           generateScopedName: "[name]__[local]___[hash:base64:5]",
         },
+      },
     },
   },
-},
-h5: {
-  publicPath: "/",
+  h5: {
+    publicPath: "/",
     staticDirectory: "static",
-      postcss: {
-    autoprefixer: {
-      enable: true,
-        config: { },
-    },
-    cssModules: {
-      enable: false, // 默认为 false，如需使用 css modules 功能，则设为 true
+    postcss: {
+      pxtransform: {
+        enable: false,
         config: {
-        namingPattern: "module", // 转换模式，取值为 global/module
+          baseFontSize: 16,
+        },
+      },
+      autoprefixer: {
+        enable: true,
+        config: {},
+      },
+      cssModules: {
+        enable: false, // 默认为 false，如需使用 css modules 功能，则设为 true
+        config: {
+          namingPattern: "module", // 转换模式，取值为 global/module
           generateScopedName: "[name]__[local]___[hash:base64:5]",
         },
+      },
     },
   },
-},
 };
 
 module.exports = function (merge) {

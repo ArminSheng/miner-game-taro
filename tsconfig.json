@@ -16,13 +16,12 @@
     "baseUrl": ".",
     "rootDir": ".",
     "jsx": "react-jsx",
-    "jsxFactory": "React.createElement",
     "allowJs": true,
     "resolveJsonModule": true,
     "typeRoots": [
       "node_modules/@types"
     ]
   },
-  "include": ["./src", "./types"],
+  "include": ["./src", "./types", "custom.d.ts"],
   "compileOnSave": false
 }
