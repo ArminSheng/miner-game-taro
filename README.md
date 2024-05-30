@@ -1,3 +1,7 @@
 ## How to run
 
-## `yarn dev:h5`
+## `yarn dev`
+
+## Deploy to gh-pages
+
+`yarn build && yarn deploy`
