@@ -10,7 +10,7 @@ import { useSocket } from "../data";
 import { AsteroidTab } from "./asteroid-tab";
 import { PlanetTab } from "./planet-tab";
 import { MinerTab } from "./miner-tab";
-import { Image } from "@tarojs/components";
+import { Image, View } from "@tarojs/components";
 
 const Tabs = [
   {
@@ -36,9 +36,9 @@ export function LeftPanel() {
 
   return (
     <>
-      <div className="p-6">
+      <View className="p-6">
         <LogoTitle />
-      </div>
+      </View>
 
       {/* 3 Tabs */}
       <div className="px-8">

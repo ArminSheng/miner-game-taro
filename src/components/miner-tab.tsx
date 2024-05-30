@@ -3,6 +3,7 @@ import { Miner, MinerStatuses, TickData } from "../data";
 import { EmptyFallback } from "./ui";
 import { MinerHistoryModal } from "./miner-history.modal";
 import { classNames } from "../common";
+import { View } from "@tarojs/components";
 
 export function MinerTab({
   data,
@@ -28,7 +29,7 @@ export function MinerTab({
   );
   return (
     <>
-      <div className="px-4">
+      <View className="px-4">
         {!!miners?.length && (
           <table className="w-full text-left">
             <thead className="text-white text-[10px]">
@@ -73,7 +74,7 @@ export function MinerTab({
         )}
 
         {miners?.length === 0 && <EmptyFallback />}
-      </div>
+      </View>
       <MinerHistoryModal isOpen={isOpen} onClose={onClose} item={miner} />
     </>
   );
