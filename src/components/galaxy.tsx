@@ -5,12 +5,16 @@ import IconPlanet1 from "../assets/planets/planet-1.png";
 import IconPlanet2 from "../assets/planets/planet-2.png";
 import IconPlanet3 from "../assets/planets/planet-3.png";
 import Background from "../assets/background.png";
+import Grid from "../assets/grid.png";
 import { classNames, isAbundant, mapPosition } from "../common";
 import { MinerRocker } from "./MinerRocket";
 import { Image } from "@tarojs/components";
 
-const PlanetIcons = [IconPlanet1, IconPlanet2, IconPlanet3];
-console.log({ Background });
+const PlanetIcons = [
+  { icon: IconPlanet1, class: "w-[91px] h-[91px]" },
+  { icon: IconPlanet2, class: "w-[150px]" },
+  { icon: IconPlanet3, class: "w-[120px]" },
+];
 
 export function Galaxy() {
   const [{ currentTick, asteroids, planets, miners }] = useSocket();
@@ -23,6 +27,10 @@ export function Galaxy() {
       <div className="w-[800px] h-[800px] relative overflow-hidden">
         {/* <img src={Background} alt="galaxy" className="w-full h-full" /> */}
         <Image src={Background} />
+        <Image
+          src={Grid}
+          className="absolute left-0 right-0 bottom-0 right-0"
+        />
         <Asteroids items={asteroids} />
         <Planets items={planets} />
         <Miners items={miners} />
@@ -48,7 +56,7 @@ function Miners({ items }: { items: Miner[] }) {
 function Planets({ items }: { items: Planet[] }) {
   return (
     <>
-      {PlanetIcons.map((Icon, idx) => {
+      {PlanetIcons.map((item, idx) => {
         const { x, y } = mapPosition(items[idx]?.position);
         return (
           <div
@@ -61,7 +69,7 @@ function Planets({ items }: { items: Planet[] }) {
           >
             <div className="relative">
               {/* <Icon /> */}
-              <Image src={Icon} />
+              <Image src={item.icon} className={item.class} />
               <span
                 className={classNames(
                   isAbundant(items[idx]?.minerals)
