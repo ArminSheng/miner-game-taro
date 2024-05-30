@@ -1,3 +1,7 @@
+## Demo
+
+https://arminsheng.github.io/miner-game-taro
+
 ## How to run
 
 ## `yarn dev`
